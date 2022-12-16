@@ -6,8 +6,7 @@
     Using section headers to restore correct page protection for the loaded sections in the Remote Process memory
     and finally creating a remote thread which calls the DLlentry with it's base address for execution
 
-|-| The fact that this DLL is manually written to memory means that the DLL informations are not present inside
-    the PEB.Ldr linked list
+|-| The benfits of this technique is that the DLL informations will not be present inside the PEB.Ldr linked list of the remote process
 
 |-| DLL format
     \ Since this program uses CreateRemoteThread to execute the DLL entry point, we can only pass one parameter; So you would
@@ -30,6 +29,6 @@ BOOL WINAPI DllMain(
     \ To build the program run `nmake` in the home directory
 
 |-| Notes
-  \ this program does not check if DLL already loaded
+  \ this program does not check if the DLL is already loaded so you can load multiple times the same DLL in a process
   \ this program does not treat delay-loaded DLL's in the imports
-  \ To use this program provide the DLL name and the pid of the remote process as remote arguments
+  \ To use this program you should provide the DLL name and the pid of the remote process as arguments

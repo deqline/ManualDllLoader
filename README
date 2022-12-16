@@ -1,9 +1,9 @@
-|-| This is a really old project which doesn't have any optimization that manually maps a DLL inside a x64 executable.
+|-| This is a really old unoptimized project that manually maps a DLL inside a x64 executable.
 
-|-| This works by manually mapping the DLL along with its sections inside the remote process using WriteProcessMemory,
-    fixing up the addresses by using the reloc section if it the DLL wasn't loaded at its preferred base,
+|-| This works by writing the DLL along with its sections inside the remote process using WriteProcessMemory,
+    fixing up the addresses by using the reloc section if the DLL wasn't loaded at its preferred base,
     resolving the imports by getting each function in the IAT of the DLL and using GetProcAddress to get their correct address,
-    Using section headers to restore correct page protection for the loaded sections in the Remote Process memory
+    Using section headers informations to restore correct page protection for the loaded sections in the Remote Process memory
     and finally creating a remote thread which calls the DLlentry with it's base address for execution
 
 |-| The benfits of this technique is that the DLL informations will not be present inside the PEB.Ldr linked list of the remote process

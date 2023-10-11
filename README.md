@@ -9,7 +9,7 @@
 
 
 ## DLL format
-Since this program uses CreateRemoteThread to execute the DLL entry point, we can only pass one parameter, so we cannot specify `fdwReason`.
+Since this program uses CreateRemoteThread to execute the DLL entry point, we can only pass one parameter, so checking `fdwReason` won't work.
 
 Here is what the DLL source code should look like:
 

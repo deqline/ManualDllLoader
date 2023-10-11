@@ -9,8 +9,9 @@
 
 
 ## DLL format
-Since this program uses CreateRemoteThread to execute the DLL entry point, we can only pass one parameter.
-You thus need to omit `fdwReason` for this to work, here is what the DLL should look like:
+Since this program uses CreateRemoteThread to execute the DLL entry point, we can only pass one parameter, so we cannot specify `fdwReason`.
+
+Here is what the DLL source code should look like:
 
 ```cpp
 #include <windows.h>

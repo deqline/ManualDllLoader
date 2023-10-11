@@ -1,5 +1,5 @@
 ## Intro
-- This is a really old unoptimized project that manually maps a DLL inside a x64 executable.
+- This is a working but non-optimized project that manually maps a DLL inside a x64 executable.
 - This works by writing the DLL along with its sections inside the remote process using WriteProcessMemory,
     fixing up the addresses by using the reloc section if the DLL wasn't loaded at its preferred base,
     resolving the imports by getting each function in the IAT of the DLL and using GetProcAddress to get their correct address,
